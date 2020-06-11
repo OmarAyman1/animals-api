@@ -1,0 +1,27 @@
+{
+  "name": "rest-animals",
+  "version": "1.0.0",
+  "description": "A Node.js RESTful API for animals data and informations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OmarAyman1/animals-api.git"
+  },
+  "keywords": [
+    "node",
+    "restful",
+    "api"
+  ],
+  "author": "Omar Ayman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OmarAyman1/animals-api/issues"
+  },
+  "homepage": "https://github.com/OmarAyman1/animals-api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
