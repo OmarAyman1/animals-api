@@ -4,16 +4,31 @@ const router = express.Router();
 let jsonData = require('../data/animals.json');
 
 router.get('/', (req, res, next) => {
+    res.status(400).send({
+        ERROR: "please enter the species"
+    });
+});
+
+router.get('/:species', (req, res, next) => {
+    const spe = req.params.species;
     var finalData;
+    var filteredData = jsonData.filter(function (jsonData) {
+        if (!jsonData.species) {
+            return;
+        }
+        var theResult = jsonData.species.includes(spe);
+        return theResult;
+    });
+
     if (Object.keys(req.query).length === 0) {
-        finalData = jsonData
+        finalData = filteredData; //filtered by species only
     }
 
     else {
         var queryParams = req.query.fields.split(',');
         var resultArr = []
-        for (var obj = 0; obj < jsonData.length; obj++) {
-            objN = jsonData[obj];
+        for (var obj = 0; obj < filteredData.length; obj++) {
+            objN = filteredData[obj];
             var tempObj = {}
             for (var i = 0; i < queryParams.length; i++) {
                 var filter = queryParams[i];
@@ -31,7 +46,7 @@ router.get('/', (req, res, next) => {
     }
 
     res.status(200).json(
-        finalData //filtered fields
+        finalData //filtered by species and fields
     );
 });
 

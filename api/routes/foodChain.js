@@ -4,16 +4,31 @@ const router = express.Router();
 let jsonData = require('../data/animals.json');
 
 router.get('/', (req, res, next) => {
+    res.status(400).send({
+        ERROR: "please enter the foodChain"
+    });
+});
+
+router.get('/:foodChain', (req, res, next) => {
+    const foodchain = req.params.foodChain;
     var finalData;
+    var filteredData = jsonData.filter(function (jsonData) {
+        if (!jsonData.foodChain) {
+            return;
+        }
+        var theResult = jsonData.foodChain.includes(foodchain);
+        return theResult;
+    });
+
     if (Object.keys(req.query).length === 0) {
-        finalData = jsonData
+        finalData = filteredData; //filtered by foodchain only
     }
 
     else {
         var queryParams = req.query.fields.split(',');
         var resultArr = []
-        for (var obj = 0; obj < jsonData.length; obj++) {
-            objN = jsonData[obj];
+        for (var obj = 0; obj < filteredData.length; obj++) {
+            objN = filteredData[obj];
             var tempObj = {}
             for (var i = 0; i < queryParams.length; i++) {
                 var filter = queryParams[i];
@@ -31,7 +46,7 @@ router.get('/', (req, res, next) => {
     }
 
     res.status(200).json(
-        finalData //filtered fields
+        finalData //filtered by foodchain and fields
     );
 });
 

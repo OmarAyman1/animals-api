@@ -3,7 +3,17 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
-const allRoutes = require('./api/routes/all');
+const allRoute = require('./api/routes/all');
+const alphaRoute = require('./api/routes/alpha');
+const classRoute = require('./api/routes/class');
+const dietRoute = require('./api/routes/diet');
+const familyRoute = require('./api/routes/family');
+const genusRoute = require('./api/routes/genus');
+const locationRoute = require('./api/routes/location');
+const nameRoute = require('./api/routes/name');
+const orderRoute = require('./api/routes/order');
+const phylumRoute = require('./api/routes/phylum');
+const speciesRoute = require('./api/routes/species');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
@@ -21,7 +31,17 @@ app.use((req, res, next) => {
 
 
 //routes to handle requests
-app.use('/all', allRoutes);
+app.use('/all', allRoute);
+app.use('/alpha', alphaRoute);
+app.use('/class', classRoute);
+app.use('/diet', dietRoute);
+app.use('/family', familyRoute);
+app.use('/genus', genusRoute);
+app.use('/location', locationRoute);
+app.use('/name', nameRoute);
+app.use('/order', orderRoute);
+app.use('/phylum', phylumRoute);
+app.use('/species', speciesRoute);
 
 app.use((req, res, next) => {
     const error = new Error('not found');
@@ -39,3 +59,7 @@ app.use((error, req, res, next) => {
 });
 
 module.exports = app;
+
+//manage capital characters locations
+//keys are case sensitive
+//values edited in code the same as location.js
