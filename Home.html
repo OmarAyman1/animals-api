@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+
+        <title>REST Animals</title>
+
+        <style type="text/css">
+            form {
+                margin: 0;
+                padding-left: 10px;
+                border: 1px dotted red;
+            }
+        </style>
+
+  
+        <!-- Flatdoc -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/legacy.js"></script>
+        <script src="https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/flatdoc.js"></script>
+
+        <!-- Flatdoc theme -->
+        <link href="https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/theme-white/style.css" rel="stylesheet">
+        <script src="https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/theme-white/script.js"></script>
+
+        <!-- Meta -->
+        <meta content="REST Animals" property="og:title">
+        <meta content="Get information about animals via a RESTful API" name="description">
+        <meta name="keywords" content="rest,api,animals,json">
+        <meta name="author" content="Omar Ayman">
+
+        <!-- Custom -->
+        <!--<link rel="shortcut icon" href="img/favicon.ico">
+        <script src="https://checkout.stripe.com/checkout.js"></script>
+
+        <!-- Initializer -->
+        <script>
+            Flatdoc.run({
+                fetcher: Flatdoc.file('flatdoc.md')
+             });
+        </script>
+
+        <style type="text/css" media="screen">
+            body {
+                font-family: Verdana, sans-serif;
+            }
+            form {
+                 margin: 0;
+                padding-left: 40px;
+            }
+        </style>
+        <script>
+            function add(){
+                var testValue = document.getElementById("fname").value;
+                //alert(testValue);
+                //console.log(testValue);
+                let myIframe = document.getElementById("myIframe");
+                myIframe.src = testValue;
+                alert()
+            }
+        </script>
+
+        <script src="js/restc.min.js" type="text/javascript" charset="utf-8" async="" defer=""></script>
+    </head>
+    <body role="flatdoc">
+        <div class="header">
+            <div class="left">
+                <h1>REST Animals</h1>
+                <ul>
+                    <!--<li><a href="https://github.com/apilayer/restcountries">View on GitHub</a></li>-->
+                    <!--<li><a href="https://github.com/apilayer/restcountries/issues">Issues</a></li>-->
+                </ul>
+            </div>
+            <div class="right">
+                <!-- GitHub buttons: see http://ghbtns.com -->
+                <!--<iframe src="https://ghbtns.com/github-btn.html?user=apilayer&amp;repo=restcountries&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>-->
+            </div>
+        </div>
+        <div class="content-root">
+            <div class="menubar fixed">
+                <div class="menu section" role="flatdoc-menu">
+                    <ul>
+                        <li id="root-item" class="level-0">
+                            <ul class="level-1" id="root-list">
+                                <li id="rest-animals-item" class="level-1">
+                                    <a id="rest-animals-link" href="#rest-animals" class="level-1">REST Animals</a>
+                                    <ul class="level-2" id="rest-animals-list">
+                                        <li id="rest-animals-stay-up-to-date-item" class="level-2">
+                                            <a id="rest-animals-stay-up-to-date-link" href="#rest-animals-stay-up-to-date" class="level-2">Contact us</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li id="api-endpoints-item" class="level-1">
+                                    <a id="api-endpoints-link" href="#api-endpoints" class="level-1">API Endpoints</a>
+                                    <ul class="level-2" id="api-endpoints-list">
+                                        <li id="api-endpoints-all-item" class="level-2">
+                                            <a id="api-endpoints-all-link" href="#api-endpoints-all" class="level-2">All</a>
+                                        </li>
+                                        <li id="api-endpoints-name-item" class="level-2">
+                                            <a id="api-endpoints-name-link" href="#api-endpoints-name" class="level-2">Name</a>
+                                        </li>
+                                        <li id="api-endpoints-alphabetical-item" class="level-2">
+                                            <a id="api-endpoints-alphabetical-link" href="#api-endpoints-alphabetical" class="level-2">Alphabetical</a>
+                                        </li>
+                                        <li id="api-endpoints-phylum-item" class="level-2">
+                                            <a id="api-endpoints-phylum-link" href="#api-endpoints-phylum" class="level-2">Phylum</a>
+                                        </li>
+                                        <li id="api-endpoints-class-item" class="level-2">
+                                            <a id="api-endpoints-class-link" href="#api-endpoints-class" class="level-2">class</a>
+                                        </li>
+                                        <li id="api-endpoints-order-item" class="level-2">
+                                            <a id="api-endpoints-order-link" href="#api-endpoints-order" class="level-2">Order</a>
+                                        </li>
+                                        <li id="api-endpoints-family-item" class="level-2">
+                                            <a id="api-endpoints-family-link" href="#api-endpoints-family" class="level-2">Family</a>
+                                        </li>
+                                        <li id="api-endpoints-genus-item" class="level-2">
+                                            <a id="api-endpoints-genus-link" href="#api-endpoints-genus" class="level-2">Genus</a>
+                                        </li>
+                                        <li id="api-endpoints-species-item" class="level-2">
+                                            <a id="api-endpoints-species-link" href="#api-endpoints-species" class="level-2">species</a>
+                                        </li>
+                                        <li id="api-endpoints-location-item" class="level-2">
+                                            <a id="api-endpoints-location-link" href="#api-endpoints-location" class="level-2">Location</a>
+                                        </li>
+                                        <li id="api-endpoints-diet-item" class="level-2">
+                                            <a id="api-endpoints-diet-link" href="#api-endpoints-diet" class="level-2">Diet</a>
+                                        </li>
+                                        <li id="api-endpoints-response-example-item" class="level-2">
+                                            <a id="api-endpoints-response-example-link" href="#api-endpoints-response-example" class="level-2">Response Example</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li id="filter-response-item" class="level-1">
+                                    <a id="filter-response-link" href="#filter-response" class="level-1">Filter Response</a>
+                                </li>
+                                <li id="sources-item" class="level-1">
+                                    <a id="sources-link" href="#sources" class="level-1">Sources</a>
+                                </li>
+                                <li id="license-item" class="level-1">
+                                    <a id="license-link" href="#license" class="level-1">License</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div role="flatdoc-content" class="content">
+                <h1 id="rest-animals">REST Animals</h1>
+                <p>Get information about animals via a RESTful API</p>
+                <p>
+                    <em>Current version: 1.0.0</em>
+                </p>
+                <h2 id="rest-animals-stay-up-to-date">Contact Us</h2>
+                <p>Follow RESTAnimals on 
+                    <a href="https://twitter.com/AnimaliaApi">Twitter</a>
+                </p>
+                <p>Or mail us at 
+                    <a href="restanimals@gmail.com">restanimals@gmail.com</a>
+                </p>
+                <h1 id="api-endpoints">API Endpoints</h1>
+                <p>Below are described the REST endpoints available that you can use to filter animals</p>
+                <h2 id="api-endpoints-all">All</h2>
+                <pre>
+                    <code class="lang-html">http://localhost:3000/all</code>
+                </pre>
+                <h2 id="api-endpoints-name">Name</h2>
+                <p>Search by animal name.</p>
+                <pre>
+                    <code class="lang-javascript">http:<span class="comment">//localhost:3000<span class="number"></span>/name/{name}</span></code>
+                </pre>
+                <pre>
+                    <code class="lang-html">http://localhost:3000/name/Aardwolf</code>
+                </pre>
+                <h2 id="api-endpoints-alphabetical">Alphabetical</h2>
+                <p>Search by animal's first character.</p>
+                <pre>
+                    <code class="lang-javascript">http:<span class="comment">//localhost:3000<span class="number"></span>/alpha/{character}</span></code>
+                </pre>
+                <pre>
+                    <code class="lang-html">http://localhost:3000/alpha/a</code>
+                </pre>
+                <h2 id="api-endpoints-phylum">Phylum</h2>
+                <p>Search by animal's Phylum</p>
+                <pre>
+                    <code class="lang-javascript">http:<span class="comment">//localhost:3000<span class="number"></span>/phylum/{phylum}</span></code>
+                </pre>
+                <pre>
+                    <code class="lang-html">http://localhost:3000/phylum/Chordata</code>
+                </pre>
+                <h2 id="api-endpoints-class">class</h2>
+                <p>Search by animal's class</p>
+                <pre>
+                    <code class="lang-javascript">http:<span class="comment">//localhost:3000<span class="number"></span>/class/{class}</span></code>
+                </pre>
+                <pre>
+                    <code class="lang-html">http://localhost:3000/class/Mammalia</code>
+                </pre>
+                <h2 id="api-endpoints-order">Order</h2>
+                <p>Search by animal's order</p>
+                <pre>
+                    <code class="lang-javascript">http:<span class="comment">//localhost:3000<span class="number"></span>/order/{order}</span></code>
+                </pre>
+                <pre>
+                    <code class="lang-html">http://localhost:3000/Order/Carnivora</code>
+                </pre>
+                <h2 id="api-endpoints-family">Family</h2>
+                <p>Search by animal's family.</p>
+                <pre>
+                    <code class="lang-javascript">http:<span class="comment">//localhost:3000<span class="number"></span>/family/{family}</span></code>
+                </pre>
+                <pre>
+                    <code class="lang-html">http://localhost:3000/family/Hyaenidae</code>
+                </pre>
+                <h2 id="api-endpoints-genus">Genus</h2>
+                <p>Search by animal's genus.</p>
+                <pre>
+                    <code class="lang-javascript">http:<span class="comment">//localhost:3000<span class="number"></span>/genus/{genus}</span></code>
+                </pre>
+                <pre>
+                    <code class="lang-html">http://localhost:3000/genus/Proteles</code>
+                </pre>
+                <h2 id="api-endpoints-species">species</h2>
+                <p>Search by animal's species.</p>
+                <pre>
+                    <code class="lang-javascript">http:<span class="comment">//localhost:3000<span class="number"></span>/species/{species}</span></code>
+                </pre>
+                <pre>
+                    <code class="lang-html">http://localhost:3000/species/Proteles cristatus</code>
+                </pre>
+                <h2 id="api-endpoints-location">Location</h2>
+                <p>Search by location.</p>
+                <pre>
+                    <code class="lang-javascript">http:<span class="comment">//localhost:3000<span class="number"></span>/location/{location}</span></code>
+                </pre>
+                <pre>
+                    <code class="lang-html">http://localhost:3000/location/Southern Africa</code>
+                </pre>
+                <h2 id="api-endpoints-diet">Diet</h2>
+                <p>Search by the foods.</p>
+                <pre>
+                    <code class="lang-javascript">http:<span class="comment">//localhost:3000<span class="number"></span>/diet/{food}</span></code>
+                </pre>
+                <pre>
+                    <code class="lang-html">http://localhost:3000/diet/ants</code>
+                </pre>
+                <h2 id="api-endpoints-response-example">Response Example</h2>
+                <form target="test_frame">
+                    <p>
+                        <label for="fname">Url:</label>
+                        <input type="url" id="fname" name="fname" style="width: 400px;" value="http://localhost:3000/name/Aardwolf">
+                    </p>
+                    <button onclick="add()">test</button>
+                </form> 
+                <pre>
+                    <iframe  style="height:200px;width:300px;border:none;" id="myIframe" name="test_frame"></iframe>
+                </pre>
+                <h1 id="filter-response">Filter Response</h1>
+                <p>You can filter the output of your request to include only the specified fields.</p>
+                <pre>
+                    <code class="lang-javascript">http:<span class="comment">//localhost:3000<span class="number"></span>/{service}?fields={field},{field},{field}</span></code>
+                </pre>
+                <pre>
+                    <code class="lang-html">http://localhost:3000/all?name,class</code>
+                </pre>
+                <h1 id="sources">Sources</h1>
+                <ul>
+                    <li><a href="https://lib2.colostate.edu/wildlife/atoz.php">CSU</a></li>
+                </ul>
+                <h1 id="license">License</h1>
+                <p><a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License</a> MPL 2.0</p>
+            </div>
+        </div>
+</html>    

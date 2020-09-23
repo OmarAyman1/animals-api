@@ -17,6 +17,7 @@ router.get('/:diet', (req, res, next) => {
             return;
         }
         var theResult = jsonData.diet.includes(food);
+        
         return theResult;
     });
 
@@ -45,9 +46,17 @@ router.get('/:diet', (req, res, next) => {
         finalData = resultArr;//set final data to required fields only
     }
 
-    res.status(200).json(
-        finalData //filtered by diet and fields
-    );
+
+    if (!finalData.length){
+        res.status(400).send({
+            ERROR: "Not found"
+        });
+    }
+    else{
+        res.status(200).json(
+            finalData //filtered by diet and fields
+        );
+    }   
 });
 
 module.exports = router;

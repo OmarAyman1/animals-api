@@ -29,6 +29,9 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/', function(request, response){
+    response.sendFile(__dirname + '/Home.html');
+});
 
 //routes to handle requests
 app.use('/all', allRoute);
