@@ -10,13 +10,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:phylum', (req, res, next) => {
-    const phylumm = req.params.phylum;
+    const phylumm = req.params.phylum.toUpperCase();
     var finalData;
     var filteredData = jsonData.filter(function (jsonData) {
         if (!jsonData.phylum) {
             return;
         }
-        var theResult = jsonData.phylum.includes(phylumm);
+        var theResult = jsonData.phylum.toUpperCase().includes(phylumm);
         return theResult;
     });
 

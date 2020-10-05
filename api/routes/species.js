@@ -10,13 +10,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:species', (req, res, next) => {
-    const spe = req.params.species;
+    const spe = req.params.species.toUpperCase();
     var finalData;
     var filteredData = jsonData.filter(function (jsonData) {
         if (!jsonData.species) {
             return;
         }
-        var theResult = jsonData.species.includes(spe);
+        var theResult = jsonData.species.toUpperCase().includes(spe);
         return theResult;
     });
 

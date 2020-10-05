@@ -10,13 +10,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:diet', (req, res, next) => {
-    const food = req.params.diet;
+    const food = req.params.diet.toUpperCase();
     var finalData;
     var filteredData = jsonData.filter(function (jsonData) {
         if (!jsonData.diet) {
             return;
         }
-        var theResult = jsonData.diet.includes(food);
+        var theResult = jsonData.diet.toUpperCase().includes(food);
         
         return theResult;
     });

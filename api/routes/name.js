@@ -10,13 +10,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:name', (req, res, next) => {
-    const nam = req.params.name;
+    const nam = req.params.name.toUpperCase();
     var finalData;
     var filteredData = jsonData.filter(function (jsonData) {
         if (!jsonData.name) {
             return;
         }
-        var theResult = jsonData.name.includes(nam);
+        var theResult = jsonData.name.toUpperCase().includes(nam);
         return theResult;
     });
 

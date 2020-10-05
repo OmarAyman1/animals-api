@@ -10,13 +10,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:alpha', (req, res, next) => {
-    const alpha = req.params.alpha;
+    const alpha = req.params.alpha.toUpperCase();
     var finalData;
     var filteredData = jsonData.filter(function (jsonData) {
         if (!jsonData.alpha) {
             return;
         }
-        var theResult = jsonData.alpha.includes(alpha);
+        var theResult = jsonData.alpha.toUpperCase().includes(alpha);
         return theResult;
     });
 

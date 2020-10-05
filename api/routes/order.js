@@ -10,13 +10,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:order', (req, res, next) => {
-    const ord = req.params.order;
+    const ord = req.params.order.toUpperCase();
     var finalData;
     var filteredData = jsonData.filter(function (jsonData) {
         if (!jsonData.order) {
             return;
         }
-        var theResult = jsonData.order.includes(ord);
+        var theResult = jsonData.order.toUpperCase().includes(ord);
         return theResult;
     });
 

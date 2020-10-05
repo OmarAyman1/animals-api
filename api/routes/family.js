@@ -10,13 +10,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:family', (req, res, next) => {
-    const fam = req.params.family;
+    const fam = req.params.family.toUpperCase();
     var finalData;
     var filteredData = jsonData.filter(function (jsonData) {
         if (!jsonData.family) {
             return;
         }
-        var theResult = jsonData.family.includes(fam);
+        var theResult = jsonData.family.toUpperCase().includes(fam);
         return theResult;
     });
 

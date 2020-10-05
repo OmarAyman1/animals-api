@@ -10,13 +10,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:foodChain', (req, res, next) => {
-    const foodchain = req.params.foodChain;
+    const foodchain = req.params.foodChain.toUpperCase();
     var finalData;
     var filteredData = jsonData.filter(function (jsonData) {
         if (!jsonData.foodChain) {
             return;
         }
-        var theResult = jsonData.foodChain.includes(foodchain);
+        var theResult = jsonData.foodChain.toUpperCase().includes(foodchain);
         return theResult;
     });
 

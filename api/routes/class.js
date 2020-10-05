@@ -10,13 +10,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:class', (req, res, next) => {
-    const classs = req.params.class;
+    const classs = req.params.class.toUpperCase();
     var finalData;
     var filteredData = jsonData.filter(function (jsonData) {
         if (!jsonData.class) {
             return;
         }
-        var theResult = jsonData.class.includes(classs);
+        var theResult = jsonData.class.toUpperCase().includes(classs);
         return theResult;
     });
 

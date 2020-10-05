@@ -14,13 +14,13 @@ function capitalizeFirstLetter(string) {
   }
 
 router.get('/:locations', (req, res, next) => {
-    var location = capitalizeFirstLetter(req.params.locations);
+    var location = req.params.locations.toUpperCase();
     var finalData;
     var filteredData = jsonData.filter(function (jsonData) {
         if (!jsonData.locations) {
             return;
         }
-        var theResult = jsonData.locations.includes(location);
+        var theResult = jsonData.locations.toUpperCase().includes(location);
         return theResult;
     });
 
