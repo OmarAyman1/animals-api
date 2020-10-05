@@ -19,6 +19,8 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+app.use(express.static(__dirname + '/api/data'));
+
 app.use((req, res, next) => {
     res.header("Access-Control_Allow-Origins", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
@@ -45,6 +47,7 @@ app.use('/name', nameRoute);
 app.use('/order', orderRoute);
 app.use('/phylum', phylumRoute);
 app.use('/species', speciesRoute);
+
 
 app.use((req, res, next) => {
     const error = new Error('not found');
